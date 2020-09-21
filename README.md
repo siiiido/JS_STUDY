@@ -1,3 +1,4 @@
 # JS_STUDY
 
-test git
+
+test git and atom
