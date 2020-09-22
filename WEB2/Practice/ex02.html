@@ -6,19 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script>
+    function nightDayHandler(self) {
+      var target = document.querySelector('body');
+      if (self.value === 'night') {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        self.value = 'day';
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'powderblue';
+          i++;
+        }
+
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        self.value = 'night';
+
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length) {
+          alist[i].style.color = 'blue';
+          i++;
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
-  <input type="button" value="night" onclick="
-document.querySelector('body').style.backgroundColor='black';
-document.querySelector('body').style.color='white';
-  ">
-  <input type="button" value="day" onclick="
-document.querySelector('body').style.backgroundColor='white';
-document.querySelector('body').style.color='black';
-  ">
+  <input id="night_day" type="button" value="night" onclick="
+nightDayHandler(this);
+ ">
 
+
+
+  <input id="night_day" type="button" value="night" onclick="
+nightDayHandler(this);
+">
+
+  <!--검색어 :  javascript element get value -->
+  <!-- javascripte get element by css selector multiple -->
 
   <ol>
     <li><a href="1.html">HTML</a></li>
@@ -32,6 +63,8 @@ document.querySelector('body').style.color='black';
     built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting
     additional features beyond ECMA.
   </p>
+
+
 
 
 </body>
