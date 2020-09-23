@@ -7,30 +7,52 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
+var Links={
+  setColor:function(color){
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while (i < alist.length) {
+      alist[i].style.color = color;
+      i++;
+    }
+  }
+}
+    // function LinksSetColor(color) {
+    //   var alist = document.querySelectorAll('a');
+    //   var i = 0;
+    //   while (i < alist.length) {
+    //     alist[i].style.color = color;
+    //     i++;
+    //   }
+    // }
+
+    var Body = {
+      setColor:function(color) {
+        document.querySelector('body').style.color = color;
+      },
+      setBackgroundColor:function(color) {
+        document.querySelector('body').style.backgroundColor = color;
+      }
+    }
+    // function BodySetColor(color) {
+    //   document.querySelector('body').style.color = color;
+    // }
+    // function BodySetBackgroundColor(color){
+    //   document.querySelector('body').style.backgroundColor = 'color';
+    // }
+
     function nightDayHandler(self) {
       var target = document.querySelector('body');
       if (self.value === 'night') {
-        target.style.backgroundColor = 'black';
-        target.style.color = 'white';
+        Body.setBackgroundColor('black');
         self.value = 'day';
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while (i < alist.length) {
-          alist[i].style.color = 'powderblue';
-          i++;
-        }
-
+        Body.setColor('white');
+        Links.setColor('powderblue');
       } else {
-        target.style.backgroundColor = 'white';
-        target.style.color = 'black';
+        Body.setBackgroundColor('white');
+        Body.setColor('black');
         self.value = 'night';
-
-        var alist = document.querySelectorAll('a');
-        var i = 0;
-        while (i < alist.length) {
-          alist[i].style.color = 'blue';
-          i++;
-        }
+        Links.setColor('blue');
       }
     }
   </script>
@@ -41,12 +63,6 @@
   <input id="night_day" type="button" value="night" onclick="
 nightDayHandler(this);
  ">
-
-
-
-  <input id="night_day" type="button" value="night" onclick="
-nightDayHandler(this);
-">
 
   <!--검색어 :  javascript element get value -->
   <!-- javascripte get element by css selector multiple -->
@@ -63,10 +79,5 @@ nightDayHandler(this);
     built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting
     additional features beyond ECMA.
   </p>
-
-
-
-
 </body>
-
 </html>
