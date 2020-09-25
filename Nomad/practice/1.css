@@ -1,3 +1,16 @@
 body{
   background-color: tomato;
 }
+
+.btn{
+  cursor: pointer;
+}
+
+h1{
+  color: #1e90ff;
+  transition: color .5s ease-in-out;
+}
+
+.clicked{
+  color: #7bed9f;
+}

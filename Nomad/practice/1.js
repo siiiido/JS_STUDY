@@ -1,39 +1,16 @@
-// const : 변수가 바뀌는거 허용 x
+const title1 = document.querySelector("#title");
 
+const CLICKED_CLASS = "clicked";
 
-function sayHello(name, age){
-  console.log("Hello ${name} you are ${age} years old");
-}
-sayHello("han", 22);
-
-
-
-
-const calculator = {
-  plus:function(a,b){
-    return a+b;
-  }
-  minus:function(a,b){
-    return a-b;
-  }
-  x:function(a,b){
-    return a*b;
-  }
-  y:function(a,b){
-    reutnr a/b;
-  }
-
+function handleClick() {
+  title1.classList.toggle(CLICKED_CLASS);
 }
 
+function init() {
+  title1.addEventListener("click", handleClick);
+}
 
-const plus = calculator.plus(5,5);
-const minus = calculator.minus(5,5);
-const x = calculator.x(5,5);
-const y = calculator.y(5,5);
+init();
 
-
-
-console.log(plus);
-console.log(minus);
-console.log(x);
-console.log(y);
+//검색어 :  javascript DOM event MDN
+// https://flatuicolors.com/
