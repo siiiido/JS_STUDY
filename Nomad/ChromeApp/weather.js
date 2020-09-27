@@ -1,0 +1,60 @@
+// API : 다른 서버로부터 데이터를 가져올 수 있음
+
+const weather = document.querySelector(".js-weather");
+const API_KEY = "c83c21368ebe71ae2f0390084e242bb0";
+const COORDS = "coords";
+
+function getWeather(lat, lon) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`).then(function(response) {
+    return response.json()
+  }).then(function(json) {
+    // console.log(json)
+    const temperature = json.main.temp;
+    const place = json.name;
+    weather.innerText = `${temperature} @ ${place}`;
+  });
+}
+
+function saveCoords(coordsObj) {
+  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+}
+
+function handleGeoSucces(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const coordsObj = {
+    latitude,
+    longitude
+  };
+  saveCoords(coordsObj);
+  getWeather(latitude, longitude);
+}
+
+
+function handleGeoError() {
+  console.log("Cant access geo location");
+}
+
+function askForCoords() {
+  navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
+}
+
+
+
+function loadCoords() {
+  const loadedCoords = localStorage.getItem(COORDS);
+  if (loadedCoords === null) {
+    askForCoords();
+  } else {
+    const parseCoords = JSON.parse(loadedCoords);
+    // console.log(parseCoords);
+    getWeather(parseCoords.latitude, parseCoords.longitude);
+  }
+}
+
+
+function init() {
+  loadCoords();
+}
+
+init();
