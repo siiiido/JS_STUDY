@@ -1,0 +1,32 @@
+하루에 2개씩 공부하기
+
+FIRST DAY
+
+js데이터 타입 ->기본타입 ->
+                          number, string, boolean, undefined, null
+
+             ->참조타입 ->
+                          객체 ->
+                                 배열, 함수, 정규표현식
+
+정수형이 따로 없음, 모든 숫자를 실수로 처리
+  var num = 5/2;
+  console.log(num) -> 2.5
+  console.log(Math.floor(num)) -> 2
+
+문자열(string)는 한 번 정의되면 변하지않음, 문자 배열처럼 인덱스를 이용해 접근 가능
+  var str = "test";
+  console.log(str[0]) -> t
+  str[0] = "A"
+  console.log(str[0]) -> t  //변하지 않으니 A가 나오지 않는다(수정 불가능)
+
+null VS undefined
+  null 과 undefined 는 등록, 저장 여부이다.
+  null 은 값은 값이지만 값으로써 의미없는 특별한 값이 등록되어 있는 것이고,
+  undefined 는 등록이 되어있지 않기 때문에 초기화도 정의되지도 않은 것이다.
+  undefined 는 미리 선언된 전역변수(전역 객체의 프로퍼티)이며,
+  null 은 선언,등록을 하는 키워드인 것이다.
+  그리고 null의 type은 null이 아니라 object이다.
+
+
+until 3.2
