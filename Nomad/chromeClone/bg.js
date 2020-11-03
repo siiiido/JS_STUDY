@@ -9,11 +9,10 @@ function paintImage(imgNumber) {
 
   // images폴더의 이미지 이름들이 1,2,3,4,5라서
   // Math.random()이 0~4니깐 1~5로 이미지를 해놨으니 +1 했음
-  image.src = `image/${imgNumber + 1}.jpg`;
+  image.src = `images/${imgNumber + 1}.jpg`;
 
   // bgImage라는 클래스 생성해줌
-  // css에서 bgImage라는 클래스 필요해서 생성한것
-  image.classList.add("bgImage");
+  image.classList.add("bgImage"); 
 
   // prepend는 맨앞 즉 body 맨앞에 이미지 설정
   body.prepend(image);

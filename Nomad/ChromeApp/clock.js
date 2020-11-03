@@ -1,6 +1,6 @@
 // <함수 설명>
 /*
-querySelector : 문서 내 첫 번쨰 element를 반환,
+querySelector : 문서 내 첫 번째 element를 반환,
 일치하는 요소 없으면 null반환
 예를 들면 var el = document.querySelector("div.user-panel.main input[name=login]");
 클래스가 "user-panel main" <div class="user-panel main">안의 이름이"login"인 <input> 중 첫 번째 요소입니다.*/

@@ -198,3 +198,176 @@ const newfruit = fruits.concat(fruits2); //fruits배열 뒤에 fruits2내용 추
 
 fruits.indexOf('apple'); //사과가 어딨는지 인덱스 번호로 알려줌, 사과없으면 -1 출력
 fruits.includes('apple'); //사과가 있는지 없는지 true, false로 출력
+
+
+// 모르는 후회하는 배열 함수 10가지
+
+
+// Q1. make a string out of an array
+// 배열을 string으로 변환하라
+{
+  const fruits = ['apple', 'banana', 'orange'];
+  const result = fruits.join(); //답 : apple,banana,orange 배열을 string으로 나타내는 함수
+}
+
+// Q2. make an array out of a string
+string을 배열로 바꿔라
+{
+  const fruits = '🍎, 🥝, 🍌, 🍒';
+  const result = fruits.split(','); // ,단위로 짜르고 ,로 배열만듬
+  //답 : ['🍎', '🥝', '🍌', '🍒']
+}
+
+// Q3. make this array look like this: [5, 4, 3, 2, 1]
+{
+  const array = [1, 2, 3, 4, 5];
+  const reuslt = array.reverse();
+}
+
+// Q4. make new array without the first two elements
+{
+  const array = [1, 2, 3, 4, 5];
+  const result = array.slice(2,5);  //splice VS slice
+}
+
+
+
+class Student {
+  constructor(name, age, enrolled, score) {
+    this.name = name;
+    this.age = age;
+    this.enrolled = enrolled;
+    this.score = score;
+  }
+}
+const students = [
+  new Student('A', 29, true, 45),
+  new Student('B', 28, false, 80),
+  new Student('C', 30, true, 90),
+  new Student('D', 40, false, 66),
+  new Student('E', 18, true, 88),
+];
+
+// Q5. find a student with the score 90
+{
+  const result = students.find((student) => {
+    return student.score === 90;
+  });
+
+위 아래 같은 함수
+
+  const result = students.find((student) => student.score === 90);
+}
+
+// Q6. make an array of enrolled students ->true인 학생들 배열로 만들기
+{
+  const result = students.filter((a) => a.enrolled); //true인 것들만 등록됨
+
+}
+
+// Q7. make an array containing only the students' scores
+// result should be: [45, 80, 90, 66, 88]
+{
+  const result = students.map((a) => a.score);
+}
+
+// Q8. check if there is a student with the score lower than 50
+{
+  const result = students.some((a) => a.score<50); //score이 50점 미만이 있는지 true나false로 출력
+
+    const result = students.every((a) => a.score<50); //모든 학생의 score이 50점 미만인지  true나false로 출력
+}
+
+// Q9. compute students' average score
+{
+  const result = students.reduce((prev,curr)=>{
+    return prev+curr.score;
+  },0);
+
+  const result = students.reduce((prev,curr)=>prev+curr.score,0);
+}
+
+// Q10. make a string containing all the scores
+// result should be: '45, 80, 90, 66, 88'
+{
+  const result = students.map(a => a.score).filter((score)=> score>=50)
+  .join();
+}
+
+// Bonus! do Q10 sorted in ascending order
+// result should be: '45, 66, 80, 88, 90'
+{
+  const result = students.map(a=>a.score).sort((a,b) => a-b).join();
+}
+
+// JSON : object -> string , string -> object
+
+// Object to JSON
+// stringfy(obj)
+let json = JSON.stringify(true);
+console.log(json);
+
+json=JSON.stringify(['apple','banana']);
+console.log(json);
+
+// json으로 갈때 데이터들만 감(함수는 안감)
+const rabbitt = {
+  name:'tori',
+  color:'white',
+  size : null,
+  birthDate : new Date(),
+  jump : () => {
+    console.log('${name} can jump!');
+  },
+};
+
+json = JSON.stringify(rabbitt);
+console.log(json); // jump는 출력안됨
+
+json = JSON.stringify(rabbitt,['name','color']); //해당 프로퍼티만 json으로 변환됨
+console.log(json);
+
+json = JSON.stringify(rabbitt,(key,value) => {
+  console.log('key : ${key}, value: ${value}');
+  return key === 'name' ? 'ellie' : value;
+});
+console.log(json);
+
+
+// JSON to Object
+// parse(json)
+console.clear();
+json= = JSON.stringify(rabbitt);
+const obj = JSON.parse(json);
+console.log(obj);
+rabbitt.jump();
+obj.jump() //에러뜸, 함수는 오지 않아서
+
+console.log(rabbitt.birthDate.getDate());
+console.log(obj.birthDate);
+
+
+
+//콜백
+// js는 동기적이다 -> 호이스팅이 된후부터 코드가 하나씩 동기적으로 실행됨
+// 호이스팅 -> 변수,함수선언들이 자동적으로 젤 위로 올라가서 코드 읽음
+// 비동기적 ->코드가 위에서 순서대로 출력하지 않음 ex) setTimeout
+
+// 콜백 -> 2가지 경우 : 즉각적으로 실행, 언제 실행될지 모름
+
+// 즉각 실행
+function printImmediately(print){
+  print();
+}
+printImmediately() => console.log('hello');
+
+//언제 실행 될지 모름
+function printWithDelay(print, timeout){
+  setTimeout(print,timeout);
+}
+printWithDelay(() => console.log('call back'),2000);
+
+
+
+
+// callback hell example
