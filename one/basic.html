@@ -19,14 +19,106 @@
     <!-- undefined, null, NaN -->
     <!-- boolean(true, false) -->
 
+    // var a = 100;
+    // <!-- 큰 따옴표 문장안에 넣고싶을떄 -->
+    // var message = "\"안녕하세요\"ㅁㄴㅇㅁㄴ";
+    // var b=a;
+    //
+    // var c = true;
+    //
+    // console.log(a);
+
+    // var a = [1,2,3,4,5];
+    // console.log(a);
+    // a.push('호호호'); //배열에 데이터 추가
+    // console.log(a);
+    //
+    // var b=[];
+    // // b.push(1);
+    // // b.push(3);
+    // b[0]=111;
+    // b[1]=222;
+    // console.log(b);
+    //
+    // var message1 = "하이 내 이름은 ";
+    // var message2 = "일분이 나이는 ";
+    // var message3 = 7;
+    // console.log(message1 + message2+message3+" 살 이야");
+    //
+    // var e = 1;
+    // e++; // 출력하고 +1
+    // ++e // +1하고 출력
+    //
+    // var ab = 100;
+    // var bc = "100";
+    // console.log(ab==bc); //숫자랑 string인데 true나옴
+    // console.log(ab===bc); //숫자랑 string이라서 false나옴
+    //
+    // //논리 연산자(&&, ||)
+    // var q=100;
+    // var w = 200;
+    // console.log(q > 200 || q==100);
+    //
+    // var age = 15;
+    // if( age > 18){
+    //   console.log("성인");
+    // }else if(age>13){
+    //   console.log("미성년자");
+    // }else{
+    //   console.log("애기");
+    // }
+    //
+    //
+    // for(var i = 0 ; i<10; i++){
+    //   console.log(i);
+    // }
+    //
+    // var movies = ['어벤저스','오펀','감사','나 홀로 집에','내부자들'];
+    //
+    // for(var i=0; i<5; i++){
+    //   console.log(movies[i]);
+    // }
+    //
+    // for(var i=0; i<movies.length; i++){
+    //   console.log(movies[i]);
+    // }
+
+
+    // function sample(){
+    //   console.log("ㅋㅋㅋㅋㅋㅋ");
+    // }
+    // // sample();
+    // function plus(a,b){
+    //   console.log(a+b);
+    // }
+    // function hi(name){
+    //   console.log("hi i'm" + name + " ipnidan");
+    // }
+    // hi("one-minute");
+    //
+    // function plus1(a,b){
+    //   return a+b;
+    // }
+    // console.log(plus1(2,5));
+
+
+    // 변수의 유효범위(Scope)
     var a = 100;
-    <!-- 큰 따옴표 문장안에 넣고싶을떄 -->
-    var message = "\"안녕하세요\"ㅁㄴㅇㅁㄴ";
-    var b=a;
+    function sample1(){
+      var a = "sample1 내부의 a";
+      var b = 200;
+      console.log("sample1에서 출력한 " + a);
+      // console.log("sample1에서 출력한 " + b);
+    }
+    sample1();
+    // console.log(b);
 
-    var c = true;
+    function sample2(){
+      console.log()
+    }
 
-    console.log(a);
+
+
   </script>
 </body>
 </html>
