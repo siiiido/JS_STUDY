@@ -6,12 +6,73 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>자바스크립트 기초</title>
 
+  <style media="screen">
+    .link-google{
+      color: red;
+    }
+    .special{
+      background: pink;
+    }
+    .menu{
+      display: flex;
+    }
+    .menu-link{
+      color: #fff;
+      margin: .1em;
+      padding : .3em;
+      background: dodgerblue;
+      color: text-decoration : none;
+      list-style: none;
+    }
+    .menu-active{
+      background: orange;
+    }
+
+  </style>
+
+  <script>
+
+  // load는 모두가 업로드가 될때까지 기다리고 실행
+  // window.onload = function(){
+  //   var title = document.getElementById("main-title");
+  //   console.log(title);
+  // };
+  //
+  // window.addEventListener('load',function(){
+  //   var title = document.getElementById("main-title");
+  //   console.log(title);
+  // });
+
+
+
+  // window.addEventListener('DOMContentLoaded',function(){
+  //   var title = document.getElementById("main-title");
+  //   console.log(title);
+  // });
+
+  </script>
 </head>
 <body>
-  <h1>JavaScript</h1>
+  <!-- <h1 id="main-title">
+    DOM(Document Object Model)
+    <small>small</small>
+  </h1>
+  <ul class="ilbuni-mom">
+    <li class="ilbuni">
+      <a class="link-google" href="http://google.com">Google</a>
+    </li>
+  </ul> -->
+  <h1 id="main-title">
+
+  </h1>
+  <nav class="menu">
+    <a href="#" class="menu-link" data-menu="1">menu 1</a>
+    <a href="#" class="menu-link" data-menu="2">menu 2</a>
+    <a href="#" class="menu-link" data-menu="3">menu 3</a>
+  </nav>
 
 
-
+  <!-- <button type="button" class="btn">클릭하세요!</button> -->
   <script>
     <!-- 기본 데이터 타입 -->
     <!-- 숫자 -->
@@ -103,18 +164,111 @@
 
 
     // 변수의 유효범위(Scope)
-    var a = 100;
-    function sample1(){
-      var a = "sample1 내부의 a";
-      var b = 200;
-      console.log("sample1에서 출력한 " + a);
-      // console.log("sample1에서 출력한 " + b);
-    }
-    sample1();
-    // console.log(b);
+    // var a = 100;
+    // function sample1(){
+    //   var a = "sample1 내부의 a";
+    //   var b = 200;
+    //   console.log("sample1에서 출력한 " + a);
+    //   // console.log("sample1에서 출력한 " + b);
+    // }
+    // sample1();
+    // // console.log(b);
+    //
+    // function sample2(){
+    //   console.log()
+    // }
+    //
+    // var person = {};
+    //   person.username = '동네친구'; //속성(property)
+    //   person.age = 12;
+    //   person.introduce = function(){
+    //     console.log("hi im" +this.username +"bye" +this.age +"zzz");
+    //   }; //메서드
+    //
+    // // console.log(person.name);
+    // person.introduce();
+    //
+    // var person2 = {
+    //   username : 'zena',
+    //   age : 20,
+    //   introduce : function(){
+    //     console.log("abd" + this.name + "qwe" + this.age);
+    //   }
+    // };
+    //
+    // person.introduce();
+    // person2.introduce();
 
-    function sample2(){
-      console.log()
+    // 생성자(constructor)
+    // 생성자 함수는 첫글자 대문자
+    // function Person(username,age){
+    //   this.username = username;
+    //   this.age = age;
+    //   this.introduce = function(){
+    //     console.log("안녕 나는 " + this.username + "ddd " + this.age
+    //     + " year");
+    //   }
+    // }
+    //
+    // // 인스턴스(instance)
+    // var p1 = new Person('동네79 ',20);
+    // var p2 = new Person('일분이 ',35);
+    //
+    // p1.introduce();
+    // p2.introduce();
+
+    // DOM
+    // document객체가 가진 getElementById메서드 호출
+    // var title = document.getElementById("main-title");
+    // // console.log(title);
+    // var titlespan = title.getElementsByTagName('span');
+    // console.log(titlespan);
+    // console.log(titlespan[0]);
+
+    // var link = document.querySelector('.ilbuni a');
+    // console.log(link.getAttribute('href')); //http://google.com
+    // console.log(link.getAttribute('class'));
+    // link.setAttribute('href','http://naver.com');
+    // console.log(link.getAttribute('href'));
+    //
+
+    // var link = document.querySelector(".ilbuni a");
+    // // link.className = 'special';
+    // link.classList.add('special');
+    // setTimeout(function(){
+    //   link.classList.remove('special');
+    // },2000);
+    //
+    // // contains : link에 special라는 클래스 가지고있으면 true, 아니면 false
+    // console.log(link.classList.contains('special'));
+
+    // var listElem = document.createElement('li');
+    // listElem.innerHTML='<span>일분이</span>'; //태그도 넣을 수 있다
+    // // console.log(listElem);
+    // var ilbunimom = document.querySelector('.ilbuni-mom');
+    // ilbunimom.appendChild(listElem);
+
+
+    // EVENT
+    // var btn = document.querySelector('.btn');
+    // var maintitle = document.querySelector('#main-title');
+    //
+    // function btnClickHandler(){
+    //   maintitle.style.background='dodgerblue';
+    // }
+    //
+    // btn.addEventListener('click',btnClickHandler);
+
+    var menuLinks = document.querySelector('.menu-link');
+
+    function clickMenuHandler() {
+      console.log('click!');
+
+    }
+
+    for(var i=0; i<menuLinks.length; i++){
+      menuLinks[i].addEventListener('click',clickMenuHandler);
+
     }
 
 
