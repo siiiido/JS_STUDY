@@ -1,0 +1,30 @@
+@keyframes sample-ani {
+  0%{
+    transform:translate(0,0);
+  }
+  50%{
+    background: red;
+    transform:translate(300px,0);
+  }
+  100%{
+    transform:translate(400px,500px);
+  }
+}
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  background: #fff000;
+  /* animation: sample-ani 3s linear infinite alternate-reverse; */
+  animation: sample-ani 3s linear forwards;
+  /* forwards : 마지막 자리에서 멈춰있음 */
+  /* alternate : 왔던길 다시가는것 */
+
+}
+.box:hover{
+  /* 마우스 올렸을때 애니메이션 멈추기 */
+  animation-play-state: paused;
+}

@@ -1,0 +1,11 @@
+.container{
+  height: 80vh;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  border: 3px solid black;
+  background: white;
+  padding: 2em;
+}
