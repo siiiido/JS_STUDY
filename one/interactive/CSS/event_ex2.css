@@ -1,0 +1,33 @@
+body{
+  /* background: #fff000; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon{
+  width: 60px;
+  /* pointer-events: none; */
+}
+.menu{
+  display: flex;
+  /* margin-top: -10vh; */
+  padding: 2em;
+  border-radius: 20px;
+  background: #eee;
+}
+.menu-btn{
+  display: inline-flex;
+  align-items: center;
+  margin: 0 1em;
+  padding: 0.5em 1em 0.5em 0.5em;
+  border: 5px solid white;
+  border-radius: 20px;
+  outline: 0;
+  font: 900 1.2rem NotoSans;
+  background: linear-gradient(0deg, rgba(223,210,0,1) 0%, rgba(255,240,0,1) 24%, rgba(255,240,0,1) 70%, rgba(255,255,255,1) 100%);
+  box-shadow: rgba(0,0,0,0.1) 0 0 0 1px inset;
+}
+.btn-label{
+  text-shadow: rgba(255, 255, 255,1) 0 1px 0;
+  /* pointer-events: none; */
+}

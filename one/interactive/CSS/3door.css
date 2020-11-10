@@ -1,0 +1,89 @@
+/* 3d효과 낼려면 3d할려는 공간을 perspective로 해야됨 */
+/* 부모에 perspective효과 넣는거랑
+자식에 perspective효과 넣는거 차이 분명함
+둘다 알고 사용할것
+부모에 perspective넣으면 시점이 다름 즉 각각 달라보임
+자식에 넣으면 자시 모두 시점이 같음 */
+.stage{
+  width: 100vw;
+  height: 100vh;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* .perspective: 800px; */
+}
+
+.door{
+  width: 100px;
+  height: 150px;
+  /* outline: 2px dashed yellow; */
+  position: relative;
+}
+
+.door-back{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+}
+
+.ilbuni{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  /* 가로축은 센터 세로축은 밑에 즉center bottom이랑 같음 */
+  background-position: 50% 100%;
+  /* contain은 안에 꽉채우는것 */
+  background-size: contain;
+  /* outline: 2px dashed red; */
+
+  /* translate3d :px나 %나 써도되는데 %쓰는게 유연해서 좋음 */
+  transform: translate3d(100%,0,0);
+  /* 앞에 0.5는 duration, 뒤에는 delay */
+  transition: 0.5s 0.4s;
+}
+
+.door:nth-child(1) .ilbuni{
+  background-image: url('../images/ilbuni_0.png');
+}
+.door:nth-child(2) .ilbuni{
+  background-image: url('../images/ilbuni_1.png');
+}
+.door:nth-child(3) .ilbuni{
+  background-image: url('../images/ilbuni_2.png');
+}
+
+.door-opened .door-body{
+  /* -110도 해야 당기시오 처럼 문이 열림 */
+  transform:perspective(800px) rotateY(-110deg);
+}
+.door-opened .ilbuni{
+  transform: translate3d(0,0,0);
+}
+
+.door-body{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+  transform-origin: left;
+
+}
+.door:nth-child(1) .door-body{
+  background: rgba(255, 0, 0, 0.7);
+}
+.door:nth-child(2) .door-body{
+  background: rgba(0, 255, 0, 0.7);
+}
+.door:nth-child(3) .door-body{
+  background: rgba(0, 0, 255, 0.7);
+}

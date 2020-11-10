@@ -11,13 +11,26 @@
   /* duration : 재생시간, delay : 기다렸다 가는 시간 */
 }
 .box:hover{
+  /* scale : 2배 커지는것, rotate : 15도 기우는것 */
   /* transform : scale(2) rotate(15deg); */
-  /* transform: skewY(-30deg); */
-  /* transform: translate(30px, 10px); */
+
+  /* y축을 기준으로 30도 기우는것, -면 반대로 기우는것 */
+  /* transform: skewY(30deg); */
+
+  /* +면 왼쪽을 기준으로 왼쪽에서 오른쪽으로 px만큼 이동,위쪽을 기준으로 위에서 아래로 px만큼 이동 /  */
+  /* -면 오른쪽을 기준으로 오른쪽에서 왼쪽으로 px만큼 이동 아래쪽을 기준으로 아래쪽에서 위쪽으로 px만큼 이동  */
+  /* transform: translate(-80px, 10px); */
+
+  /* +면 왼쪽을 기준으로 왼쪽에서 오른쪽으로 px만큼 이동,위쪽을 기준으로 위에서 아래로 px만큼 이동 /  */
   /* transform: translateX(30px); */
+
   /* transform : scale(1.5); */
   /* transform: rotate(30deg); */
-  /* transform-origin: left top; 기준점이 왼쪽 위 */
+
+  /* 기준점이 왼쪽 위 */
+  /* transform-origin: left top; */
+
+  /* 기준점이 오른쪽 밑 */
   /* transform-origin: 100% 100%; */
   /* transform: scale(2); */
   /* width: 200; */

@@ -1,3 +1,5 @@
+
+/* 0,0에서 시작해서 x축300 y축0으로 갔다가 x축 400,y축 500으로 이동 */
 @keyframes sample-ani {
   0%{
     transform:translate(0,0);
@@ -19,9 +21,11 @@
   border: 2px solid #000;
   background: #fff000;
   /* animation: sample-ani 3s linear infinite alternate-reverse; */
-  animation: sample-ani 3s linear forwards;
+  animation: sample-ani 3s linear infinite alternate ;
+  /* linear : 스무스하게 이동 */
   /* forwards : 마지막 자리에서 멈춰있음 */
   /* alternate : 왔던길 다시가는것 */
+  /* infinite : 무한으로 이동 */
 
 }
 .box:hover{

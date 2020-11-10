@@ -2,16 +2,28 @@
   /* 시작점이 디폴트면 안써도됨 */
   /* 시작점(0%)=from , 마지막점(100%)=to */
   to{
+    /* 이거역시 150처럼 반으로 나타내기 때문에 2550해줌 */
     background-position: -2550px 0;
-
   }
 }
+/* 왜 이미지가 300,300인데 150,150으로 설정 해주는가 ?  */
+/* -> 고해상도 이미지 표현할려고(요즘은 2배 크기로 나타남) */
+/* -> 고해상대 디스플레이에서 선명하게 이미지를 표현하기 위해서 두 배 사이즈로 만들고  */
+/* 절반으로 css로 줄여서 표현해줌 */
 .spaceship{
   width: 150px;
   height: 150px;
-  background:url('../images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
-  animation: spaceship-ani 1.5s infinite reverse steps(17);
+
+  /* auto랑 150px는 백그라운드 사이즈임 */
+  /* 가로,세로 중 사이즈 크기 설정하기 쉬운거 먼저하고 나머진 auto로하면 자동으로 연결됨 */
+  /* no-repeat 다음 0 0은 시작 백그라운드 포지션임 그래서 keyframes에 시작점 안적어놓은것 */
+  background:url('../images/sprite_spaceship.png') no-repeat 0 0  /auto 150px;
+  animation: spaceship-ani 1.5s infinite steps(17) ;
 }
 body{
   background: #222;
 }
+
+
+/* 왜 -2550해주는지 ?
+no-repeat다음 0 0은 무엇인지 */

@@ -26,7 +26,12 @@
   /* 숫자가 작을수록 눈앞에 가까운듯함 더 효과가 난다? */
   perspective: 500px;
 }
-.world:hover .card{
+
+/* .world:hover .card{
+  transform: rotateY(180deg) ;
+} */
+
+.card:hover{
   transform: rotateY(180deg) ;
 }
 
@@ -39,14 +44,20 @@
   position: absolute;
   left: 0;
   top: 0;
+
+  /* width,height 100%가 부모인 card의 높이 크기에 맞게  */
+  /* 100% 채운다는 말임 */
   width: 100%;
   height: 100%;
+
   backface-visibility: hidden;
 }
+
 .card-side-front{
   z-index: 1;
   background: white;
 }
+
 .card-side-back{
   background: red;
   transform: rotateY(180deg);
