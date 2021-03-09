@@ -38,13 +38,17 @@
   width: 100px;
   height: 100px;
   background-repeat: no-repeat;
+
   /* 가로축은 센터 세로축은 밑에 즉center bottom이랑 같음 */
   background-position: 50% 100%;
+
   /* contain은 안에 꽉채우는것 */
+
   background-size: contain;
   /* outline: 2px dashed red; */
 
   /* translate3d :px나 %나 써도되는데 %쓰는게 유연해서 좋음 */
+  /* translate3d쓰면 하드웨어를 가속해서 성능이 더 좋아짐 그래서 3d쓸 것도 아니고 z축 쓸것도 아닌데 translate3d사용함 */
   transform: translate3d(100%,0,0);
   /* 앞에 0.5는 duration, 뒤에는 delay */
   transition: 0.5s 0.4s;
@@ -60,6 +64,9 @@
   background-image: url('../images/ilbuni_2.png');
 }
 
+
+/* .door-opened .door-body : 이 뜻이 door-opened의 자식으로 door-body이 있을 때 실행임  */
+/* 즉 바꿔 말하면 door-body의 부모가 door-opened일 때 실행  */
 .door-opened .door-body{
   /* -110도 해야 당기시오 처럼 문이 열림 */
   transform:perspective(800px) rotateY(-110deg);
@@ -76,7 +83,6 @@
   height: 100%;
   transition: 0.5s;
   transform-origin: left;
-
 }
 .door:nth-child(1) .door-body{
   background: rgba(255, 0, 0, 0.7);

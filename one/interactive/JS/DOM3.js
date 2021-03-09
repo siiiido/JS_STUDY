@@ -49,6 +49,13 @@
 (function(){
   const characters1 = document.querySelector('.characters');
   // console.log(ilbuni);
+
+  characters1.setAttribute('data-id',123);
+  console.log(  characters1.getAttribute('data-id'));
+
+
+
+
   function clickIlbuniHandler(e){
     // ilbuni.classList.toggle('special');
 
