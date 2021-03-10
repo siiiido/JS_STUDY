@@ -48,41 +48,41 @@
 
 // ====================================3차=========================================================
 // 3차 js 개선
-(function() {
-  const stageElem = document.querySelector('.stage');
+// (function() {
+//   const stageElem = document.querySelector('.stage');
 
-  // /현재 활성화됨 아이템을 저장하는 변수
-  let currentItem;
+//   // /현재 활성화됨 아이템을 저장하는 변수
+//   let currentItem;
 
-  //핸들러 함수에 활성화, 비활성화 기능을 추가하는 것 보다
-  // 이렇게 함수로 쪼개는게 훨씬 기능적으로도 코드도 깔끔하고 좋음
-  function activate(e) {
-    e.classList.add('door-opened');
-    currentItem = e;
-  }
+//   //핸들러 함수에 활성화, 비활성화 기능을 추가하는 것 보다
+//   // 이렇게 함수로 쪼개는게 훨씬 기능적으로도 코드도 깔끔하고 좋음
+//   function activate(e) {
+//     e.classList.add('door-opened');
+//     currentItem = e;
+//   }
 
-  function inactivate(e) {
-    e.classList.remove('door-opened');
-  }
+//   function inactivate(e) {
+//     e.classList.remove('door-opened');
+//   }
 
-  function doorHandler(e) {
-    const targetElem = e.target;
+//   function doorHandler(e) {
+//     const targetElem = e.target;
 
-    if (currentItem) {
-      inactivate(currentItem);
-    }
-    if (targetElem.classList.contains('door-body')) {
-      activate(targetElem.parentNode);
-    }
+//     if (currentItem) {
+//       inactivate(currentItem);
+//     }
+//     if (targetElem.classList.contains('door-body')) {
+//       activate(targetElem.parentNode);
+//     }
 
-  }
+//   }
 
-  stageElem.addEventListener('click', doorHandler);
+//   stageElem.addEventListener('click', doorHandler);
 
-  // 실행할 때 앞문 열리고 시작하기
-  activate(document.querySelector('.door:nth-child(3)'));
+//   // 실행할 때 앞문 열리고 시작하기
+//   activate(document.querySelector('.door:nth-child(3)'));
 
-})();
+// })();
 
 // 1차 연습
 
@@ -160,3 +160,37 @@
 
 //   stage.addEventListener("click", doorHandler);
 // })();
+
+// 2번째 1차 연습
+(function () {
+  const stage = document.querySelector(".stage");
+
+  let currentItem;
+
+  function activate(e) {
+    e.classList.add("door-opened");
+    currentItem = e;
+  }
+  function inactivate(e) {
+    e.classList.remove("door-opened");
+  }
+
+  function doorHandler(e) {
+    const target = e.target;
+
+    if (currentItem) {
+      inactivate(currentItem);
+    }
+
+    if (target.classList.contains("door-body")) {
+      activate(target.parentNode);
+    }
+  }
+
+  stage.addEventListener("click", doorHandler);
+
+  // 작은 따옴표랑 큰 따옴표랑 효과가 차이있음
+  activate(document.querySelector('.door:nth-child(2)'));
+  // activate(document.querySelector(".door:nth-child(3)"));
+
+})();
