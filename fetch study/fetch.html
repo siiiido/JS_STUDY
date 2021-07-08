@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <article>
+
+        </article>
+        
+        <input type="button" value="fetch" onclick="
+            // fetch('css').then(function(response) {
+            //     response.text().then(function(text){
+            //         document.querySelector('article').innerHTML = text;
+            //     })
+            // })
+
+        
+        // callbackme = function(){
+        //     console.log('response end');
+        // }
+        // fetch('html').then(callbackme);
+
+        // 위와 같은 것
+        fetch('html').then(function(response){
+            console.log(response); // response 객체 출력
+            console.log(response.status); // response 객체의 status 출력
+            if(response.status == '200'){
+                console.log('success');
+            }
+        });
+        ">
+    </body>
+</html>
+
